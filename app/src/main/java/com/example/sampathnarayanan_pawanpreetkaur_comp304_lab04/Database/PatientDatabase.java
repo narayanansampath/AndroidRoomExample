@@ -22,7 +22,9 @@ public abstract class PatientDatabase extends RoomDatabase{
             synchronized (PatientDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context,
-                            PatientDatabase.class, "App_database").build();
+                            PatientDatabase.class, "App_database")
+                            .fallbackToDestructiveMigration()
+                            .build();
                 }
             }
         }

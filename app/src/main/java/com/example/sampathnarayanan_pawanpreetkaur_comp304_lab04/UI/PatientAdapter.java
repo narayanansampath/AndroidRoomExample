@@ -13,54 +13,61 @@ import com.example.sampathnarayanan_pawanpreetkaur_comp304_lab04.R;
 
 import java.util.List;
 
-public class PatientAdapter {}
+public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientViewHolder> {
 
-/*
- extends RecyclerView.Adapter<PatientAdapter.WordViewHolder> {
 
-    class WordViewHolder extends RecyclerView.ViewHolder {
-        private final TextView wordItemView;
+    //this context we will use to inflate the layout
+    private Context mCtx;
 
-        private WordViewHolder(View itemView) {
-            super(itemView);
-            wordItemView = itemView.findViewById(R.id.textView);
-        }
-    }
+    //we are storing all the products in a list
+    private List<Patient> patientList;
 
-    private final LayoutInflater mInflater;
-    private List<Word> mWords; // Cached copy of words
-
-    PatientAdapter(Context context) { mInflater = LayoutInflater.from(context); }
-
-    @Override
-    public WordViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = mInflater.inflate(R.layout.recyclerview_item, parent, false);
-        return new WordViewHolder(itemView);
+    //getting the context and product list with constructor
+    public PatientAdapter(Context mCtx, List<Patient> patientList) {
+        this.mCtx = mCtx;
+        this.patientList = patientList;
     }
 
     @Override
-    public void onBindViewHolder(WordViewHolder holder, int position) {
-        if (mWords != null) {
-            Word current = mWords.get(position);
-            holder.wordItemView.setText(current.getWord());
-        } else {
-            // Covers the case of data not being ready yet.
-            holder.wordItemView.setText("No Word");
-        }
+    public PatientViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        //inflating and returning our view holder
+        LayoutInflater inflater = LayoutInflater.from(mCtx);
+        View view = inflater.inflate(R.layout.layout_patients, parent, false);
+        return new PatientViewHolder(view);
     }
 
-    void setWords(List<Patient> words){
-        mWords = words;
-        notifyDataSetChanged();
+    @Override
+    public void onBindViewHolder(PatientViewHolder holder, int position) {
+        //getting the product of the specified position
+        Patient patient = patientList.get(position);
+
+        //binding the data with the viewholder views
+        holder.textViewPatientName.setText(" Patient Name:       " + patient.getFName() + " " + patient.getLName());
+        holder.textViewPatientId.setText(" Patient ID:             " + patient.getPatientId());
+        holder.textViewDept.setText(" Patient Dept:         " + String.valueOf(patient.getDept()));
+        holder.textViewNurseId.setText(" Nurse ID:                 " + String.valueOf(patient.getNurseId()));
+        holder.textViewPatientRoom.setText(" Patient Room:        " + patient.getRoom());
     }
 
-    // getItemCount() is called many times, and when it is first called,
-    // mWords has not been updated (means initially, it's null, and we can't return null).
+
     @Override
     public int getItemCount() {
-        if (mWords != null)
-            return mWords.size();
-        else return 0;
+        return patientList.size();
+    }
+
+
+    class PatientViewHolder extends RecyclerView.ViewHolder {
+
+        TextView textViewPatientName, textViewPatientId, textViewDept, textViewNurseId, textViewPatientRoom;
+
+        public PatientViewHolder(View itemView) {
+            super(itemView);
+
+            textViewPatientName = itemView.findViewById(R.id.tvPatientName);
+            textViewPatientId = itemView.findViewById(R.id.tvPatientId);
+            textViewDept = itemView.findViewById(R.id.tvPatientDepartment);
+            textViewNurseId = itemView.findViewById(R.id.tvNurseId);
+            textViewPatientRoom = itemView.findViewById(R.id.tvRoom);
+        }
     }
 }
- */

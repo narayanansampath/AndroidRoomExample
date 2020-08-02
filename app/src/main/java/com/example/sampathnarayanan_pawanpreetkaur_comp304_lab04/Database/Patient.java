@@ -10,11 +10,14 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "Patient_table")
 public class Patient {
 
+    public Patient() {}
+
     @PrimaryKey(autoGenerate = true)
     private int PatientId;
     private String FName;
     private String LName;
     private String Dept;
+    private int nurseId;
     private String Room;
 
 
@@ -54,4 +57,11 @@ public class Patient {
     }
 
 
+    public int getNurseId() {
+        return nurseId;
+    }
+
+    public void setNurseId(int nurseId) {
+        this.nurseId = nurseId;
+    }
 }

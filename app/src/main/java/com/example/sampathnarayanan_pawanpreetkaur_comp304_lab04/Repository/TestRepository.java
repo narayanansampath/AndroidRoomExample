@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.sampathnarayanan_pawanpreetkaur_comp304_lab04.Database.PatientDatabase;
 import com.example.sampathnarayanan_pawanpreetkaur_comp304_lab04.Database.Test;
 import com.example.sampathnarayanan_pawanpreetkaur_comp304_lab04.Database.TestDao;
+import com.example.sampathnarayanan_pawanpreetkaur_comp304_lab04.Database.TestDatabase;
 
 import java.util.List;
 
@@ -19,19 +20,19 @@ public class TestRepository {
     //
     public TestRepository(Context context) {
         //create a database object
-        PatientDatabase db = PatientDatabase.getInstance(context);
+        TestDatabase db = TestDatabase.getDatabase(context);
         //create an interface object
         testDao = db.testDao();
         //call interface method
         testList = testDao.getAllTests();
-        //selectedPatient = patientDao.getSelectedPatient(1); // <<<<< we need to pass the selected Patient's ID value from the GUI
     }
     // returns query results as LiveData object
     public LiveData<List<Test>> getAllTest() {
         return testList;
     }
-    public LiveData<List<Test>> getSelectedTest() {
-        return selectedTest;
+    public LiveData<Test> getSelectedTest(int testId)
+    {
+        return testDao.getSelectedTest(testId);
     }
     //inserts a person asynchronously
     public void insert(Test test) {

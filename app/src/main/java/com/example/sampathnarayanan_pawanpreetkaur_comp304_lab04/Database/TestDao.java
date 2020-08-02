@@ -18,4 +18,7 @@ public interface TestDao  {
 
     @Query("delete from TestDetails")
     void deleteAllData();
+
+    @Query("select * from TESTDETAILS where TestId = :testId")
+    LiveData<Test> getSelectedTest(int testId);
 }

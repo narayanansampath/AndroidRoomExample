@@ -7,6 +7,7 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -14,24 +15,24 @@ import java.util.List;
 // and does the mapping of SQL queries to functions
 @Dao
 public interface PatientDao {
-    //
-   // @Insert
-    //void insert(Patient person);
-
 
     //Monitoring Query Result Changes with Live Data
     @Query("select * from Patient_table ")
     LiveData<List<Patient>> getAllPatient();
 
-    //@Query("select * from Patient where PatientId = ':PatientId' order by Fname")
-    //LiveData<List<Patient>> getSelectedPatient(int PatientId);
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(Patient person);
+
+    @Update
+    void update(Patient person);
 
     @Query("DELETE FROM Patient_table")
     void deleteAll();
 
-   // @Query("SELECT * from Patient_table ORDER BY Lname ASC")
+    @Query("select * from Patient_table where PatientId = :pId")
+    LiveData<Patient> getselectedPatient(int pId);
+
+    // @Query("SELECT * from Patient_table ORDER BY Lname ASC")
    // List<Patient> getAlphabetizedWords();
 
 

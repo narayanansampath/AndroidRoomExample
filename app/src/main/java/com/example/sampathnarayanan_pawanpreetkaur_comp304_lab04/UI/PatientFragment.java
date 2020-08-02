@@ -1,5 +1,6 @@
 package com.example.sampathnarayanan_pawanpreetkaur_comp304_lab04.UI;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,8 +26,7 @@ public class PatientFragment extends Fragment {
     private Button submitButton,viewInformationButton;
     private EditText patientIdEditText, firstNameEditText, lastNameEditText, departmentEditText, nurseIdEditText, roomEditText;
     String firstName, lastName, department, room;
-    int  patientId;
-    boolean doesMatch = false;
+    int nurseId, patientId;
 
 
     @Nullable
@@ -37,6 +37,7 @@ public class PatientFragment extends Fragment {
         firstNameEditText = rootView.findViewById(R.id.patientt2);
         lastNameEditText = rootView.findViewById(R.id.patientt3);
         departmentEditText = rootView.findViewById(R.id.patientt4);
+        nurseIdEditText = rootView.findViewById(R.id.patientt5);
         roomEditText = rootView.findViewById(R.id.patientt6);
         submitButton = (Button) rootView.findViewById(R.id.patientb1);
         viewInformationButton = rootView.findViewById(R.id.patientb2);
@@ -59,6 +60,7 @@ public class PatientFragment extends Fragment {
                 firstName = firstNameEditText.getText().toString();
                 lastName = lastNameEditText.getText().toString();
                 department = departmentEditText.getText().toString();
+                nurseId = Integer.parseInt(nurseIdEditText.getText().toString());
                 room = roomEditText.getText().toString();
                 Patient patientData = new Patient();
                 patientData.setFName(firstName);
@@ -69,7 +71,17 @@ public class PatientFragment extends Fragment {
                 viewModel.insert(patientData);
             }
         });
+
+        viewInformationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), PatientInfoActivity.class);
+                startActivity(intent);
+            }
+        });
         return rootView;
+
+
     }
 }
 

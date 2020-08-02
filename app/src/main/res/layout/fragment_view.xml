@@ -3,33 +3,31 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp" >
+    android:paddingRight="16dp">
 
     <TextView
         android:id="@+id/textview6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:text="View Patient Test Information"
         android:textColor="#9400D3"
-        android:textSize="25sp"
-        android:layout_centerHorizontal="true"
-        />
+        android:textSize="25sp" />
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/llViewTest"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_alignParentStart="true"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/textview6"
+        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        >
+        android:orientation="vertical">
 
         <EditText
-            android:id="@+id/viewt1"
+            android:id="@+id/viewET1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="Test ID"
-            />
+            android:hint="Test ID" />
 
 
         <Button
@@ -37,9 +35,76 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="View Information"
-            android:textColor="#9400D3"
-            />
+            android:layout_gravity="center_horizontal"
+            android:textColor="#9400D3" />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/llViewTest"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/viewt1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="18sp"/>
+
+
+        <TextView
+            android:id="@+id/viewt2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/viewt3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="18sp"/>
+
+
+        <TextView
+            android:id="@+id/viewt4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="18sp"/>
+
+
+        <TextView
+            android:id="@+id/viewt5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/viewt6"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/viewt7"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/viewt8"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="18sp"/>
     </LinearLayout>
 
 </RelativeLayout>

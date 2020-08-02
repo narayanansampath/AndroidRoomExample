@@ -26,18 +26,21 @@ public class PatientRepository {
         patientDao = db.patientDao();
         //call interface method
         patientList = patientDao.getAllPatient();
-        //selectedPatient = patientDao.getSelectedPatient(1); // <<<<< we need to pass the selected Patient's ID value from the GUI
     }
     // returns query results as LiveData object
     public LiveData<List<Patient>> getAllPatient() {
         return patientList;
     }
-    public LiveData<List<Patient>> getSelectedPatient() {
-        return selectedPatient;
+    public LiveData<Patient> getSelectedPatient(int patientId) {
+        return patientDao.getselectedPatient(patientId);
     }
     //inserts a person asynchronously
     public void insert(Patient patient) {
         insertAsync(patient);
+    }
+
+    public void update(Patient patient) {
+        updateAsync(patient);
     }
     // returns insert results as LiveData object
     public LiveData<Integer> getInsertResult() {
@@ -51,6 +54,21 @@ public class PatientRepository {
             public void run() {
                 try {
                     patientDao.insert(patient);
+                    insertResult.postValue(1);
+                } catch (Exception e) {
+                    insertResult.postValue(0);
+                }
+            }
+        }).start();
+    }
+
+    private void updateAsync(final Patient patient) {
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    patientDao.update(patient);
                     insertResult.postValue(1);
                 } catch (Exception e) {
                     insertResult.postValue(0);

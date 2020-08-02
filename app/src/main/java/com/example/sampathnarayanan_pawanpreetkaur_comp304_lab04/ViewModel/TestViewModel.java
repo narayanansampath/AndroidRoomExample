@@ -33,5 +33,7 @@ public class TestViewModel extends AndroidViewModel {
         return insertResult;
     }
     //returns query results as live data object
-    LiveData<List<Test>> getAllPatient() { return allTest; }
+    public LiveData<List<Test>> getAllPatient() { return allTest; }
+
+    public LiveData<Test> getSpecificTest(int testId) { return testRepository.getSelectedTest(testId); }
 }

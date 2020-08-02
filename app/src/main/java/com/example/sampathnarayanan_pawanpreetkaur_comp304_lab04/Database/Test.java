@@ -17,7 +17,7 @@ public class Test {
     private int testId;
 
     @ColumnInfo(name = "NurseId")
-    private String nurseId;
+    private int nurseId;
 
     @ColumnInfo(name = "BPL")
     private String BPL;
@@ -25,15 +25,20 @@ public class Test {
     @ColumnInfo(name = "BPH")
     private String BPH;
 
+    @ColumnInfo(name = "VisionLeft")
+    private String leftVision;
+
+    @ColumnInfo(name = "VisionRight")
+    private String rightVision;
+
     @ColumnInfo(name = "Temperature")
     private String temperature;
 
-    public Test()
-    {
+    public Test() {
 
     }
 
-    public Test(int testId, int patientId, String nurseId, String bpl, String bph, String temperature) {
+    public Test(int testId, int patientId, int nurseId, String bpl, String bph, String leftVision, String rightVision, String temperature) {
 
         this.testId=testId;
         this.patientId=patientId;
@@ -41,14 +46,16 @@ public class Test {
 
         this.BPL = bpl;
         this.BPH = bph;
+        this.leftVision = leftVision;
+        this.rightVision = rightVision;
         this.temperature = temperature;
     }
 
-    public String getNurseId() {
+    public int getNurseId() {
         return nurseId;
     }
 
-    public void setNurseId(String nurseId) {
+    public void setNurseId(int nurseId) {
         this.nurseId = nurseId;
     }
 
@@ -91,5 +98,21 @@ public class Test {
 
     public void setTemperature(String temperature) {
         this.temperature = temperature;
+    }
+
+    public String getLeftVision() {
+        return leftVision;
+    }
+
+    public void setLeftVision(String leftVision) {
+        this.leftVision = leftVision;
+    }
+
+    public String getRightVision() {
+        return rightVision;
+    }
+
+    public void setRightVision(String rightVision) {
+        this.rightVision = rightVision;
     }
 }
