@@ -9,11 +9,10 @@
         android:id="@+id/textview2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign Up"
-        android:textColor="#9400D3"
-        android:textSize="30sp"
         android:layout_centerHorizontal="true"
-        />
+        android:text="Register"
+        android:textColor="#9400D3"
+        android:textSize="30sp" />
 
     <LinearLayout
         android:orientation="vertical"

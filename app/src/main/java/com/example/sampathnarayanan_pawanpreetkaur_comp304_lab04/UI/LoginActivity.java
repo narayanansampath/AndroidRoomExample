@@ -1,6 +1,7 @@
 package com.example.sampathnarayanan_pawanpreetkaur_comp304_lab04.UI;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +26,8 @@ public class LoginActivity extends AppCompatActivity {
     Nurse loginData;
     boolean doesMatch = false;
     Map<Integer, String> userDetails = new HashMap<>();
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         Button signupButton = findViewById(R.id.loginb2);
         LoginViewModel viewModel = ViewModelProviders.of(this).get(LoginViewModel.class);
         loginData = new Nurse();
-
+        editor = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
         viewModel.getGetAllData().observe(this, new Observer<List<Nurse>>() {
             @Override
             public void onChanged(List<Nurse> loginTables) {
@@ -57,6 +60,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 if(doesMatch) {
+                    editor.putBoolean("isLoggedIn", true);
+                    editor.apply();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 } else {

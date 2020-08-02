@@ -1,11 +1,14 @@
 package com.example.sampathnarayanan_pawanpreetkaur_comp304_lab04.UI;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sampathnarayanan_pawanpreetkaur_comp304_lab04.R;
+
+import static com.example.sampathnarayanan_pawanpreetkaur_comp304_lab04.UI.LoginActivity.MY_PREFS_NAME;
 
 
 public class SplashScreenActivity extends AppCompatActivity {
@@ -17,12 +20,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-       // requestWindowFeature(Window.FEATURE_NO_TITLE);
-       // getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        setContentView(R.layout.acitivity_home);
+        setContentView(R.layout.acitivity_splash);
         getSupportActionBar().hide();
         LogoLauncher logoLauncher = new LogoLauncher();
         logoLauncher.start();
@@ -37,7 +35,8 @@ public class SplashScreenActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             Intent intent;
-
+            SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+            isUserLoggedIn  = prefs.getBoolean("isLoggedIn", false);
             if(isUserLoggedIn){
                 intent = new Intent(SplashScreenActivity.this, MainActivity.class);
             } else {

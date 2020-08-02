@@ -1,6 +1,9 @@
 package com.example.sampathnarayanan_pawanpreetkaur_comp304_lab04.UI;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -9,6 +12,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.sampathnarayanan_pawanpreetkaur_comp304_lab04.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import static com.example.sampathnarayanan_pawanpreetkaur_comp304_lab04.UI.LoginActivity.MY_PREFS_NAME;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +28,30 @@ public class MainActivity extends AppCompatActivity {
                     new PatientFragment()).commit();
         }
     }
+
+    // create an action bar button
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.mymenu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    // handle button activities
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.mybutton) {
+            SharedPreferences.Editor prefs = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+            prefs.remove("isLoggedIn");
+            prefs.apply();
+           Intent intent = new Intent(this, LoginActivity.class);
+           startActivity(intent);
+           finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
