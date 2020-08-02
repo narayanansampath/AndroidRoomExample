@@ -59,9 +59,9 @@ public class NurseRepository {
         @Override
         protected Void doInBackground(Nurse... data) {
 
-            nurseDao1.deleteAllData();
-
-            nurseDao1.insertDetails(data[0]);
+            for(int i=0; i<data.length; i++){
+                nurseDao1.insertDetails(data[i]);
+            }
             return null;
 
         }
