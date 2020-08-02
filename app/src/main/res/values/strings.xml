@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SampathNarayanan_PawanpreetKaur_Comp304_Lab04</string>
+    <string name="profile">Profile</string>
+    <string name="update">Update</string>
+    <string name="view">View</string>
+    <string name="test">Test</string>
+    <string name="patient">Patient</string>
+</resources>

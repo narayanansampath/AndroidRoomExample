@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_patient"
+        android:icon="@drawable/patient"
+        android:title="@string/patient" />
+    <item
+        android:id="@+id/nav_test"
+        android:icon="@drawable/test"
+        android:title="@string/test" />
+    <item
+        android:id="@+id/nav_view"
+        android:icon="@drawable/test_info"
+        android:title="@string/view" />
+    <item
+        android:id="@+id/nav_update"
+        android:icon="@drawable/update"
+        android:title="@string/update" />
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/profile"
+        android:title="@string/profile" />
+
+
+</menu>

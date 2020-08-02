@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/simpleImageView1"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:src="@drawable/hospital"
+        android:layout_marginTop="60dp"/>
+
+    <TextView
+        android:id="@+id/textview1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/simpleImageView1"
+        android:text="Login / Sign Up"
+        android:textColor="#9400D3"
+        android:textSize="30sp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <EditText
+        android:id="@+id/logint1"
+        android:hint="Username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_below="@id/textview1"
+        android:padding="8dp"
+      />
+
+    <EditText
+        android:id="@+id/logint2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:padding="8dp"
+        android:hint="Password"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/logint1" />
+
+    <Button
+        android:id="@+id/loginb1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textColor="#9400D3"
+        android:layout_below="@+id/logint2"
+        android:layout_marginTop="17dp"
+        android:layout_alignStart="@+id/logint2"
+        android:layout_alignEnd="@+id/logint2"
+        android:layout_alignLeft="@+id/logint2"
+        android:layout_alignRight="@+id/logint2" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/loginb2"
+        android:text="Register"
+        android:textColor="#9400D3"
+        android:layout_below="@+id/loginb1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:onClick="sendMessage"/>
+</RelativeLayout>

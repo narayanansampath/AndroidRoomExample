@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/simpleImageView1"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:src="@drawable/hospital"
+        android:layout_marginTop="60dp"/>
+
+    <TextView
+        android:id="@+id/simpleTextView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="#9400D3"
+        android:padding="5dp"
+        android:text="Nurse Aid"
+        android:textColor="#fff"
+        android:textSize="40sp" />
+
+</RelativeLayout>
