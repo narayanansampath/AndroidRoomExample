@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.sampathnarayanan_pawanpreetkaur_comp304_lab04.R;
@@ -28,6 +29,8 @@ public class UpdateFragment extends Fragment {
          etPatientId = rootView.findViewById(R.id.updatet1);
          viewInfo =  rootView.findViewById(R.id.updatetb1);
         updateInfo =  rootView.findViewById(R.id.updateb2);
+
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Update Patient info");  // provide compatibility to all the versions
 
         viewInfo.setOnClickListener(new View.OnClickListener() {
             @Override

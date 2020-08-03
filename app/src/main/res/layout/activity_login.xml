@@ -7,30 +7,29 @@
         android:layout_width="match_parent"
         android:layout_height="220dp"
         android:src="@drawable/hospital"
-        android:layout_marginTop="60dp"/>
+        android:layout_marginTop="20dp"/>
 
     <TextView
-        android:id="@+id/textview1"
+        android:id="@+id/simpleTextView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="5dp"
+        android:textColor="#000000"
         android:layout_below="@id/simpleImageView1"
-        android:text="Login / Sign Up"
-        android:textColor="#9400D3"
-        android:textSize="30sp"
-        android:layout_centerHorizontal="true"
-        />
+        android:text="@string/nurse_record_helper"
+        android:textSize="40sp" />
 
     <EditText
         android:id="@+id/logint1"
         android:hint="Username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/simpleTextView1"
         android:layout_marginLeft="18dp"
         android:layout_marginRight="18dp"
-        android:layout_below="@id/textview1"
-        android:padding="8dp"
-      />
+        android:padding="8dp" />
 
     <EditText
         android:id="@+id/logint2"
@@ -48,7 +47,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:textColor="#9400D3"
         android:layout_below="@+id/logint2"
         android:layout_marginTop="17dp"
         android:layout_alignStart="@+id/logint2"
@@ -57,13 +55,15 @@
         android:layout_alignRight="@+id/logint2" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/loginb2"
         android:text="Register"
-        android:textColor="#9400D3"
         android:layout_below="@+id/loginb1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp"
-        android:onClick="sendMessage"/>
+        android:layout_marginTop="20dp"
+        android:layout_alignStart="@+id/logint2"
+        android:layout_alignEnd="@+id/logint2"
+        android:layout_alignLeft="@+id/logint2"
+        android:layout_alignRight="@+id/logint2" />
 </RelativeLayout>

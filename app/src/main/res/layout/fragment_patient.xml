@@ -5,19 +5,9 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp">
 
-    <TextView
-        android:id="@+id/textview3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Enter Patient Information"
-        android:textColor="#9400D3"
-        android:textSize="30sp" />
-
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@+id/textview3"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:orientation="vertical">
@@ -64,8 +54,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_gravity="center_horizontal"
-            android:text="Submit"
-            android:textColor="#9400D3" />
+            android:text="Submit" />
 
         <Button
             android:id="@+id/patientb2"
@@ -73,8 +62,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_gravity="center_horizontal"
-            android:text="View Information"
-            android:textColor="#9400D3" />
+            android:text="View Information" />
 
     </LinearLayout>
 

@@ -5,22 +5,11 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp" >
 
-    <TextView
-        android:id="@+id/textview5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Update or View Patient Information"
-        android:textColor="#9400D3"
-        android:textSize="24sp"
-        android:layout_centerHorizontal="true"
-        />
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textview5"
         android:layout_alignParentLeft="true"
         >
 
@@ -38,17 +27,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="View Information"
-            android:layout_gravity="center_horizontal"
-            android:textColor="#9400D3"
-            />
+            android:layout_gravity="center_horizontal" />
         <Button
             android:id="@+id/updateb2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Update Information"
-            android:layout_gravity="center_horizontal"
-            android:textColor="#9400D3"
-            />
+            android:layout_gravity="center_horizontal" />
 
     </LinearLayout>
 

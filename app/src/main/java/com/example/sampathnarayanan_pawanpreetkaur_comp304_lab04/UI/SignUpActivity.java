@@ -1,5 +1,6 @@
 package com.example.sampathnarayanan_pawanpreetkaur_comp304_lab04.UI;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -27,6 +29,10 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
+        getSupportActionBar().setTitle("Registration");
+
+
         nurseIdEditText = findViewById(R.id.signupt1);
         firstNameEditText = findViewById(R.id.signupt2);
         lastNameEditText = findViewById(R.id.signupt3);
@@ -43,7 +49,7 @@ public class SignUpActivity extends AppCompatActivity {
                 if (result == 1) {
                     Toast.makeText(SignUpActivity.this, "User successfully saved", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(SignUpActivity.this, "Error saving user", Toast.LENGTH_SHORT).show();
+                    showErrorDialog("Error creating account, please try again later.");
                 }
             }
         });
@@ -58,7 +64,7 @@ public class SignUpActivity extends AppCompatActivity {
                 departament = departmentEditText.getText().toString();
                 confirmPassowrd = confirmPassowrdEditText.getText().toString();
                 if(!confirmPassowrd.equals(password)){
-                    Toast.makeText(SignUpActivity.this, "Password does not match, please recheck and try again.", Toast.LENGTH_SHORT).show();
+                    showErrorDialog("Password does not match, please recheck and try again.");
                 }
                 else if(!nurseId.isEmpty() && !password.isEmpty()) {
                     loginData.setNurseId((Integer.parseInt(nurseId)));
@@ -70,9 +76,27 @@ public class SignUpActivity extends AppCompatActivity {
                     Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(SignUpActivity.this, "Invalid signup details, please try again.", Toast.LENGTH_SHORT).show();
+                    showErrorDialog("Invalid signup details, please try again.");
                 }
             }
         });
+    }
+
+    void showErrorDialog(String message) {
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+        builder1.setTitle("Error");
+        builder1.setMessage(message);
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton(
+                "Ok",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
     }
 }

@@ -28,6 +28,9 @@ public class PatientInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_info);
+
+        getSupportActionBar().setTitle("Patient Info");
+
         //getting the recyclerview from xml
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -37,7 +40,6 @@ public class PatientInfoActivity extends AppCompatActivity {
         viewModel.getAllPatient().observe(this, new Observer<List<Patient>>() {
             @Override
             public void onChanged(List<Patient> patients) {
-                Log.e("Patientsss", patients.toString());
                 patientsList.addAll(patients);
                 PatientAdapter adapter = new PatientAdapter(getApplication(), patientsList);
                 //setting adapter to recyclerview

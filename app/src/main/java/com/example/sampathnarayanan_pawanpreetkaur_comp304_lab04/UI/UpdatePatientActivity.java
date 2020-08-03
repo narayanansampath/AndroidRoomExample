@@ -45,6 +45,7 @@ public class UpdatePatientActivity extends AppCompatActivity {
         viewModel =  ViewModelProviders.of(this).get(PatientViewModel.class);
 
         if(!isEditable){
+            getSupportActionBar().setTitle("View Patient screen");
             patientIdEditText.setFocusable(false);
             firstNameEditText.setFocusable(false);
             lastNameEditText.setFocusable(false);
@@ -52,6 +53,7 @@ public class UpdatePatientActivity extends AppCompatActivity {
             nurseIdEditText.setFocusable(false);
             roomEditText.setFocusable(false);
         } else {
+            getSupportActionBar().setTitle("Update Patient screen");
             patientIdEditText.setFocusable(false);
             firstNameEditText.setFocusableInTouchMode(true);
             lastNameEditText.setFocusableInTouchMode(true);

@@ -1,5 +1,7 @@
 package com.example.sampathnarayanan_pawanpreetkaur_comp304_lab04.UI;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -33,6 +36,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        getSupportActionBar().setTitle("Login");
+
         usernameEditText = findViewById(R.id.logint1);
         passwordEditText = findViewById(R.id.logint2);
         Button loginButton = findViewById(R.id.loginb1);
@@ -65,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(LoginActivity.this, "Invalid login details, please try again.", Toast.LENGTH_SHORT).show();
+                    showErrorDialog("Invalid login details, please try again.");
                 }
             }
         });
@@ -77,5 +83,23 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    void showErrorDialog(String message) {
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(LoginActivity.this);
+        builder1.setTitle("Error");
+        builder1.setMessage(message);
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton(
+                "Ok",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
     }
 }

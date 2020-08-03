@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -36,6 +37,9 @@ public class ViewFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
          View rootView = inflater.inflate(R.layout.fragment_view, container, false);
+
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("View Test Info");  // provide compatibility to all the versions
+
 
         patientIdEditText = (TextView) rootView.findViewById(R.id.viewt2);
         testIdEditText = rootView.findViewById(R.id.viewt1);
